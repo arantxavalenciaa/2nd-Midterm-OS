@@ -1,0 +1,23 @@
+services: 
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: VaRa080598$
+      MYSQL_DATABASE: classicmodels
+    ports:
+      - "3306:3306"
+
+  go-server:
+    build: .
+    ports: 
+      - "8000:8000"
+    environment: 
+      DBUSER: root
+      DBPASS: VaRa080598$
+
+  react:
+    build: ./mini_store
+    ports: 
+      - "3000:3000"
+
+    
